@@ -1,4 +1,4 @@
-import React from "react";
+import ProjectList from "./ProjectList";
 
 export default function LandingPage() {
   return (
@@ -9,21 +9,24 @@ export default function LandingPage() {
         <h1 className="text-4xl font-bold tracking-tight">
           Hi, I’m Laszlo.
         </h1>
-        <p className="text-lg text-neutral-400">
+        <p className="text-lg text-neutral-500 dark:text-neutral-400">
           Frontend developer focused on fast, reliable, and thoughtfully crafted user interfaces.
         </p>
       </section>
 
+      {/* PROJECTS */}
+      <ProjectList />
+
       {/* ABOUT */}
       <section className="flex flex-col gap-4">
         <h2 className="text-xl font-semibold">About me</h2>
-        <p className="text-neutral-300 leading-relaxed">
+        <p className="text-neutral-500 dark:text-neutral-300 leading-relaxed">
           I enjoy building interfaces that feel simple and natural to use.  
           I’m especially interested in React-based applications, whether it’s interactive
           dashboards, internal tools, or responsive mobile UIs, that handle real-world
           data and bring intuitive and visually appealing technology into the lives of users.
         </p>
-        <p className="text-neutral-300 leading-relaxed">
+        <p className="text-neutral-500 dark:text-neutral-300 leading-relaxed">
           My background is originally in medical studies, which gave me discipline,
           curiosity, and a long-term interest in health tech. Today, I combine that mindset
           with strong frontend fundamentals to create clear and maintainable solutions.
@@ -33,7 +36,7 @@ export default function LandingPage() {
       {/* SKILLS */}
       <section className="flex flex-col gap-4">
         <h2 className="text-xl font-semibold">Skills</h2>
-        <p className="text-neutral-300 leading-relaxed">
+        <p className="text-neutral-500 dark:text-neutral-300 leading-relaxed">
           My focus is modern frontend development with React. I enjoy working with
           component-driven architectures, robust state management, and well-organized codebases.
         </p>
@@ -54,7 +57,7 @@ export default function LandingPage() {
       {/* CONTACT / AVAILABILITY */}
       <section className="flex flex-col gap-2">
         <h2 className="text-xl font-semibold">Availability</h2>
-        <p className="text-neutral-300 leading-relaxed">
+        <p className="text-neutral-500 dark:text-neutral-300 leading-relaxed">
           I’m currently open to frontend roles, ideally React-focused.  
           Feel free to reach out, I’m always happy to connect.
         </p>
