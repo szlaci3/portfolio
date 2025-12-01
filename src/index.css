@@ -3,6 +3,7 @@
   --color-bg-primary: #0a0a0f;
   --color-bg-secondary: #12121a;
   --color-bg-tertiary: #1a1a27;
+  --color-bg-quaternary: rgba(255, 255, 255, 0.1);
   
   --color-text-primary: #ffffff;
   --color-text-secondary: #b4b4c8;
@@ -240,18 +241,19 @@ body {
 .btn-secondary {
   background: rgba(255, 255, 255, 0.05);
   color: white;
-  border: 2px solid rgba(255, 255, 255, 0.1);
+  border: 2px solid var(--color-bg-quaternary);
   backdrop-filter: blur(var(--blur-sm));
 }
 
 .btn-secondary:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--color-bg-quaternary);
   border-color: rgba(255, 255, 255, 0.2);
   transform: translateY(-2px);
 }
 
 .scroll-indicator {
   position: absolute;
+  z-index: 1;
   bottom: var(--spacing-xl);
   left: 50%;
   transform: translateX(-50%);
@@ -404,7 +406,7 @@ body {
 
 .expand-btn {
   background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--color-bg-quaternary);
   border-radius: var(--radius-md);
   width: 40px;
   height: 40px;
@@ -417,7 +419,7 @@ body {
 }
 
 .expand-btn:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--color-bg-quaternary);
   border-color: rgba(168, 85, 247, 0.5);
 }
 
@@ -450,7 +452,7 @@ body {
   gap: var(--spacing-xs);
   padding: var(--spacing-sm) var(--spacing-md);
   background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--color-bg-quaternary);
   border-radius: var(--radius-md);
   color: var(--color-text-primary);
   text-decoration: none;
@@ -581,7 +583,7 @@ body {
   gap: var(--spacing-sm);
   padding: var(--spacing-md) var(--spacing-lg);
   background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--color-bg-quaternary);
   border-radius: var(--radius-xl);
   color: var(--color-text-primary);
   text-decoration: none;
@@ -592,7 +594,7 @@ body {
 }
 
 .contact-link:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--color-bg-quaternary);
   border-color: rgba(236, 72, 153, 0.5);
   transform: translateY(-2px);
   box-shadow: 0 0 20px rgba(236, 72, 153, 0.3);
