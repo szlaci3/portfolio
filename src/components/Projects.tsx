@@ -13,6 +13,7 @@ interface Project {
   demoUrl: string;
   repoUrl: string;
   technologies: string[];
+  type: "real" | "poc";
 }
 
 const projects: Project[] = [
@@ -25,7 +26,8 @@ const projects: Project[] = [
     fullImage: 'https://images.unsplash.com/photo-1557821552-17105176677c?w=1200&h=700&fit=crop',
     demoUrl: 'https://shophub-demo.example.com',
     repoUrl: 'https://github.com/szlaci3/shophub',
-    technologies: ['React', 'Node.js', 'MongoDB', 'Stripe API', 'Redux']
+    technologies: ['React', 'Node.js', 'MongoDB', 'Stripe API', 'Redux'],
+    type: "real"
   },
   {
     id: 2,
@@ -36,7 +38,8 @@ const projects: Project[] = [
     fullImage: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=700&fit=crop',
     demoUrl: 'https://dataviz-demo.example.com',
     repoUrl: 'https://github.com/szlaci3/dataviz',
-    technologies: ['Vue.js', 'D3.js', 'TypeScript', 'WebSocket', 'PostgreSQL']
+    technologies: ['Vue.js', 'D3.js', 'TypeScript', 'WebSocket', 'PostgreSQL'],
+    type: "poc"
   },
   {
     id: 3,
@@ -47,7 +50,8 @@ const projects: Project[] = [
     fullImage: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=1200&h=700&fit=crop',
     demoUrl: 'https://pixelperfect-demo.example.com',
     repoUrl: 'https://github.com/szlaci3/pixelperfect',
-    technologies: ['Next.js', 'GSAP', 'Tailwind CSS', 'Sanity CMS', 'Framer Motion']
+    technologies: ['Next.js', 'GSAP', 'Tailwind CSS', 'Sanity CMS', 'Framer Motion'],
+    type: "poc"
   },
   {
     id: 4,
@@ -58,7 +62,8 @@ const projects: Project[] = [
     fullImage: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=1200&h=700&fit=crop',
     demoUrl: 'https://connecthub-demo.example.com',
     repoUrl: 'https://github.com/szlaci3/connecthub',
-    technologies: ['React Native', 'GraphQL', 'Apollo', 'Firebase', 'Redis']
+    technologies: ['React Native', 'GraphQL', 'Apollo', 'Firebase', 'Redis'],
+    type: "poc"
   }
 ];
 
@@ -84,10 +89,15 @@ const Projects = () => {
               className={`project-card ${expandedProject === project.id ? 'expanded' : ''}`}
               data-project={project.id}
             >
+              {project.type === "real" && (
+                <div className="project-badge">
+                  Real software in production
+                </div>
+              )}
               <div className="project-thumbnail" onClick={() => toggleProject(project.id)}>
                 <img src={project.thumbnail} alt={project.title} loading="lazy" />
                 <div className="project-overlay">
-                  <span className="expand-hint">Click to expand</span>
+                  {expandedProject !== project.id && <span className="expand-hint">Click to expand</span>}
                 </div>
               </div>
               <div className="project-content">
@@ -105,7 +115,7 @@ const Projects = () => {
                 <div className="project-links">
                   <a href={project.demoUrl} className="project-link" target="_blank" rel="noopener noreferrer">
                     <ExternalLink />
-                    Live Demo
+                    {project.type === "real" ? "Presentation (by my product leader)" : "Visit Website"}
                   </a>
                 </div>
                 
@@ -122,10 +132,12 @@ const Projects = () => {
                         <span key={tech} className="tech-tag">{tech}</span>
                       ))}
                     </div>
+                    {project.type !== "real" && (
                     <a href={project.repoUrl} className="project-link repo-link" target="_blank" rel="noopener noreferrer">
                       <GitHub />
                       View Repository
                     </a>
+                    )}
                   </div>
                 </div>
               </div>

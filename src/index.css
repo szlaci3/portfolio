@@ -328,6 +328,22 @@ body {
   overflow: hidden;
   transition: all var(--transition-base);
   backdrop-filter: blur(var(--blur-sm));
+  position: relative;
+}
+
+.project-badge {
+  position: absolute;
+  top: var(--spacing-sm);
+  left: var(--spacing-sm);
+  z-index: 10;
+  background: var(--gradient-primary);
+  color: white;
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  box-shadow: var(--shadow-md);
+  pointer-events: none;
 }
 
 .project-card:hover {
