@@ -19,14 +19,15 @@ interface Project {
 const projects: Project[] = [
   {
     id: 1,
-    title: 'ShopHub - E-Commerce Platform',
-    shortDesc: 'Modern e-commerce platform with seamless checkout and real-time inventory management',
-    longDesc: 'A full-featured e-commerce platform built with React and Node.js, featuring advanced product filtering, secure payment integration with Stripe, real-time inventory tracking, and a responsive admin dashboard. The platform handles thousands of products with optimized performance and seamless user experience across all devices.',
+    title: 'Regnology Reporting Hub',
+    shortDesc: 'Fintech regulatory reporting software widely used by renowned financial institutions',
+    longDesc: "The Reporting Hub is Regnology's cloud-first regulatory reporting platform, used by banks and financial institutions across the world to manage every stage of the reporting process. It operates on very large, granular datasets and provides high-precision validation, exception handling, and complex table-based data exploration for professional users. I worked as a Senior Software Engineer on the front-end team, building UI components and interaction patterns that support automated workflows, dynamic spreadsheets, and advanced oversight tools. \n\nWorking closely with product owners and back-end engineers, I delivered features that improve data quality, streamline exception resolution, and give users clearer visibility and control over their reports. The platform demands reliability — especially when handling millions of data points under strict regulatory rules. \n\nWith no dedicated designer, I self-taught design and UX principles to ensure that complex, high-density screens remained clear, consistent, and efficient for analysts who depend on speed and accuracy in their daily work. \n\nThis project represents my most recent experience in large-scale, high-precision front-end development within a regulated, mission-critical environment.",
     thumbnail: '/assets/Regnology.png',
     fullImage: '/assets/Regnology.png',
-    demoUrl: 'https://shophub-demo.example.com',
-    repoUrl: 'https://github.com/szlaci3/shophub',
-    technologies: ['React', 'Node.js', 'MongoDB', 'Stripe API', 'Redux'],
+    // demoUrl: 'https://www.regnology.net/en/solutions/for-the-regulated/regnology-reporting-hub',
+    demoUrl: 'https://www.regnology.net/en/solutions/regnology-platform',
+    repoUrl: '',
+    technologies: ['React', 'Node.js', 'Zustand', 'GraphQL', 'Redis', 'Material UI', 'Handsontable', 'TypeScript', 'Vitest', 'Playwright', 'React Testing Library'],
     type: "real"
   },
   {
@@ -113,10 +114,16 @@ const Projects = () => {
                 </div>
                 <p className="project-short-desc">{project.shortDesc}</p>
                 <div className="project-links">
-                  <a href={project.demoUrl} className="project-link" target="_blank" rel="noopener noreferrer">
+                  <a href={project.demoUrl} className="project-link website-link" target="_blank" rel="noopener noreferrer">
                     <ExternalLink />
-                    {project.type === "real" ? "Presentation (by my product leader)" : "Visit Website"}
+                    {project.type === "real" ? "Learn more on the company's website" : "Visit Website"}
                   </a>
+                  {expandedProject === project.id && project.type !== "real" && (
+                    <a href={project.repoUrl} className="project-link" target="_blank" rel="noopener noreferrer">
+                      <GitHub />
+                      View Repository
+                    </a>
+                  )}
                 </div>
                 
                 {/* Expanded Content */}
@@ -132,12 +139,6 @@ const Projects = () => {
                         <span key={tech} className="tech-tag">{tech}</span>
                       ))}
                     </div>
-                    {project.type !== "real" && (
-                    <a href={project.repoUrl} className="project-link repo-link" target="_blank" rel="noopener noreferrer">
-                      <GitHub />
-                      View Repository
-                    </a>
-                    )}
                   </div>
                 </div>
               </div>

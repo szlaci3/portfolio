@@ -8,7 +8,7 @@ const Details = () => {
             <h2 className="section-title">About me</h2>
             <p className="details-text">
               I enjoy building interfaces that feel simple and natural to use.  
-              I’m especially interested in React-based applications, whether it’s interactive
+              I'm especially interested in React-based applications, whether it's interactive
               dashboards, internal tools, or responsive mobile UIs, that handle real-world
               data and bring intuitive and visually appealing technology into the lives of users.
             </p>

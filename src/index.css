@@ -10,6 +10,7 @@
   --color-text-muted: #6e6e8f;
   
   --color-accent-purple: #a855f7;
+  --color-light-purple: #c17fff;
   --color-accent-blue: #3b82f6;
   --color-accent-cyan: #06b6d4;
   --color-accent-pink: #ec4899;
@@ -526,6 +527,7 @@ body {
 }
 
 .project-long-desc {
+  white-space: pre-wrap;
   color: var(--color-text-secondary);
   line-height: 1.8;
   margin-bottom: var(--spacing-lg);
@@ -543,17 +545,17 @@ body {
   background: rgba(168, 85, 247, 0.1);
   border: 1px solid rgba(168, 85, 247, 0.3);
   border-radius: var(--radius-md);
-  color: var(--color-accent-purple);
+  color: var(--color-light-purple);
   font-size: var(--font-size-sm);
   font-weight: 500;
 }
 
-.repo-link {
+.website-link {
   background: rgba(168, 85, 247, 0.1);
   border-color: rgba(168, 85, 247, 0.3);
 }
 
-.repo-link:hover {
+.website-link:hover {
   background: var(--gradient-primary);
   border-color: transparent;
 }
