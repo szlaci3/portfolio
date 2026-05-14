@@ -14,6 +14,7 @@ interface Project {
   repoUrl: string;
   technologies: string[];
   type: "real" | "poc";
+  disabled?: boolean;
 }
 
 const projects: Project[] = [
@@ -32,6 +33,19 @@ const projects: Project[] = [
   },
   {
     id: 2,
+    title: 'Bookworm Archive',
+    shortDesc: 'A scalable React application for book discovery and collection management',
+    longDesc: 'Bookworm Archive is a data-driven React application built around the Open Library API, allowing users to search, explore, and organize books into custom collections.\n\nThe project focuses heavily on scalable front-end architecture. Remote API data, UI state, and local persistent user data are separated into dedicated Redux Toolkit slices, with normalized entity storage and memoized selectors powering the application.\n\nUsers can search large book datasets, inspect detailed work information, and save books into personal collections that persist locally through IndexedDB/Dexie.\n\nThe project emphasizes Redux Toolkit architecture, normalized relational state, persistent client-side data modeling and scalable React application structure.\n\nOne challenge came from inconsistencies between different Open Library endpoints. The search API returns readable author names, while the detailed Works API often provides only author IDs. To preserve a better user experience, the application retains author names from earlier search results whenever possible, while still gracefully handling cases where a book is opened directly through a URL and the author name is unavailable. Another architectural challenge involved synchronizing persistent collection data across multiple browser tabs. Because each tab maintains its own in-memory Redux store, changes written to IndexedDB were not automatically reflected elsewhere. This was solved using the Broadcast Channel API, allowing tabs to broadcast collection updates and rehydrate their Redux state in real time whenever local data changes occur.',
+    thumbnail: '/assets/Bookworm.png',
+    fullImage: '/assets/Bookworm.png',
+    demoUrl: 'https://szlaci3-bookworm.netlify.app',
+    repoUrl: 'https://github.com/szlaci3/bookworm',
+    technologies: ['React', 'Redux Toolkit', 'TypeScript', 'REST API', 'IndexedDB', 'Vite'],
+    type: "poc"
+  },
+  {
+    disabled: true,
+    id: 3,
     title: 'Quizlet - Interactive Quiz Application',
     shortDesc: 'A fast-paced trivia app with dual-choice mechanics and external API integration',
     longDesc: "Quizlet is an interactive quiz application with two trivia questions in each round, allowing the user to choose which question to answer, creating an engaging and strategic quiz experience.\n\nThe application manages async state flows using Redux thunks to fetch questions from the Open Trivia Database API. The UI leverages Styled Components for a polished, component-based design system, while implementing answer shuffling algorithms and real-time scoring.\n\nOne of the key technical challenges was safely handling HTML entities in questions and answers from the external API. I implemented sanitize-html to prevent XSS vulnerabilities while preserving proper text rendering. Another challenge was architecting clean Redux state management patterns with TypeScript, particularly typing async thunks and ensuring type safety across the component tree while maintaining good separation of concerns between UI logic and state management.\n\nI built this application to showcase my expertise in React hooks, Redux state management, TypeScript integration, external API consumption, and security best practices in a single-page application.",
@@ -43,7 +57,7 @@ const projects: Project[] = [
     type: "poc"
   },
   {
-    id: 3,
+    id: 4,
     title: 'Enterprise HR Management Application',
     shortDesc: 'A comprehensive HR web application featuring data visualization, employee management, and contract handling with virtual table optimization',
     longDesc: "This is a full-featured enterprise Human Resources management application designed to handle employee data, contracts, and company analytics. The application provides real-time dashboards with statistics on active employees, pending contracts, and workforce metrics, enabling HR teams to make data-driven decisions.\n\nThe application is built on Ant Design Pro framework with UmiJS for routing and build optimization, implementing complex features like multi-tab employee detail forms, chart visualizations using @ant-design/charts (insurance costs, employment statistics, department gender breakdowns), and a sophisticated table system. The architecture uses DVA (Redux wrapper) for state management and React hooks for component logic, with service layers handling API integration.\n\nOne of the key technical challenges was implementing virtual scrolling tables for optimal performance with large employee datasets while maintaining fixed headers and dual-axis scrolling functionality. I debugged and corrected buggy Ant Design Pro Table behaviors, particularly around cell rendering lifecycles and scroll synchronization. Another significant challenge was architecting the complex multi-step employee detail forms with proper validation, dynamic field dependencies (department selection affecting position options), and state synchronization across tabs while maintaining data integrity during add/edit operations.\n\nI built this software with enterprise React patterns, Ant Design Pro ecosystem, UmiJS framework, complex form validation, data visualization, TypeScript, and performance optimization for large datasets.",
@@ -55,7 +69,8 @@ const projects: Project[] = [
     type: "poc"
   },
   {
-    id: 4,
+    disabled: true,
+    id: 5,
     title: 'Smart Anki - Spaced Repetition Flashcard System',
     shortDesc: 'A sophisticated flashcard application with intelligent scheduling and multi-sided card support',
     longDesc: "Smart Anki is a spaced repetition learning application that implements an adaptive review system with customizable rating intervals, allowing users to efficiently memorize information through scientifically-backed study techniques.\n\nThe application features a smart card selection algorithm that prioritizes cards based on due dates and review history, implementing a cold-start pattern with fallback cards to ensure instant UI responsiveness while API data loads. The system supports multi-sided flashcards (beyond traditional front/back), progressive reveal mechanics, and dynamic interval calculations based on user confidence ratings.\n\nOne of the key technical challenges was building the intelligent card scheduling algorithm that calculates optimal review intervals—ranging from 10 minutes for difficult cards to exponentially increasing day intervals for mastered content—while maintaining type safety across the async data flow between the REST API and React components.\n\nIn this project I showcased my proficiency in React hooks, TypeScript type transformations (API string types to runtime numbers), axios-based API integration, URL-based deep linking for specific cards, and implementing complex UX patterns like progressive disclosure and adaptive scheduling algorithms.",
@@ -84,7 +99,7 @@ const Projects = () => {
         </div>
 
         <div className="projects-grid">
-          {projects.map((project) => (
+          {projects.filter((proj) => !proj.disabled).map((project) => (
             <article 
               key={project.id} 
               className={`project-card ${expandedProject === project.id ? 'expanded' : ''}`}
