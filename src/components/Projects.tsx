@@ -78,14 +78,14 @@ const projects: Project[] = [
     type: "poc",
   },
   {
-    disabled: true,
+    disabled: false,
     id: 5,
     title: 'Enterprise HR Management Application',
     shortDesc: 'A comprehensive HR web application featuring data visualization, employee management, and contract handling with virtual table optimization',
     longDesc: "This is a full-featured enterprise Human Resources management application designed to handle employee data, contracts, and company analytics. The application provides real-time dashboards with statistics on active employees, pending contracts, and workforce metrics, enabling HR teams to make data-driven decisions.\n\nThe application is built on Ant Design Pro framework with UmiJS for routing and build optimization, implementing complex features like multi-tab employee detail forms, chart visualizations using @ant-design/charts (insurance costs, employment statistics, department gender breakdowns), and a sophisticated table system. The architecture uses DVA (Redux wrapper) for state management and React hooks for component logic, with service layers handling API integration.\n\nOne of the key technical challenges was implementing virtual scrolling tables for optimal performance with large employee datasets while maintaining fixed headers and dual-axis scrolling functionality. I debugged and corrected buggy Ant Design Pro Table behaviors, particularly around cell rendering lifecycles and scroll synchronization. Another significant challenge was architecting the complex multi-step employee detail forms with proper validation, dynamic field dependencies (department selection affecting position options), and state synchronization across tabs while maintaining data integrity during add/edit operations.\n\nI built this software with enterprise React patterns, Ant Design Pro ecosystem, UmiJS framework, complex form validation, data visualization, TypeScript, and performance optimization for large datasets.",
     thumbnail: '/assets/AntHill.png',
     fullImage: '/assets/AntHill.png',
-    demoUrl: 'https://szlaci3-hr.netlify.app/dist',
+    demoUrl: 'https://szlaci-hr.netlify.app',
     repoUrl: 'https://github.com/szlaci3/anthill',
     technologies: ['React', 'Data Tables', 'Ant Design', 'TypeScript'],
     type: "poc"
