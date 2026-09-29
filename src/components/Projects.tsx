@@ -33,6 +33,7 @@ const projects: Project[] = [
   },
   {
     id: 2,
+    disabled: true,
     title: 'Bookworm Archive',
     shortDesc: 'A scalable React application for book discovery and collection management',
     longDesc: 'Bookworm Archive is a data-driven React application built around the Open Library API, allowing users to search, explore, and organize books into custom collections.\n\nThe project focuses heavily on scalable front-end architecture. Remote API data, UI state, and local persistent user data are separated into dedicated Redux Toolkit slices, with normalized entity storage and memoized selectors powering the application.\n\nUsers can search large book datasets, inspect detailed work information, and save books into personal collections that persist locally through IndexedDB/Dexie.\n\nThe project emphasizes Redux Toolkit architecture, normalized relational state, persistent client-side data modeling and scalable React application structure.\n\nOne challenge came from inconsistencies between different Open Library endpoints. The search API returns readable author names, while the detailed Works API often provides only author IDs. To preserve a better user experience, the application retains author names from earlier search results whenever possible, while still gracefully handling cases where a book is opened directly through a URL and the author name is unavailable. Another architectural challenge involved synchronizing persistent collection data across multiple browser tabs. Because each tab maintains its own in-memory Redux store, changes written to IndexedDB were not automatically reflected elsewhere. This was solved using the Broadcast Channel API, allowing tabs to broadcast collection updates and rehydrate their Redux state in real time whenever local data changes occur.',
@@ -78,7 +79,7 @@ const projects: Project[] = [
     type: "poc",
   },
   {
-    disabled: false,
+    disabled: true,
     id: 5,
     title: 'Enterprise HR Management Application',
     shortDesc: 'A comprehensive HR web application featuring data visualization, employee management, and contract handling with virtual table optimization',
@@ -102,7 +103,19 @@ const projects: Project[] = [
     repoUrl: 'https://github.com/szlaci3/smart-anki-2',
     technologies: ['React', 'TypeScript', 'Redis', 'REST API'],
     type: "poc"
-  }
+  },
+  {
+    id: 7,
+    title: 'Talker — Conversational AI Interface',
+    shortDesc: 'A deployed React chat application where an LLM can use constrained tools to change the interface through natural language.',
+    longDesc: "Talker is a deployed AI application built around a single-thread chat. Alongside answering messages, the model can request validated application actions, such as changing the theme, font size, or named interface colors. The frontend passes those requests through shared application handlers, so chatbot actions follow the same constraints as manual controls.\n\nThe React and TypeScript frontend streams responses from a Python aiohttp backend, which keeps model credentials server-side and applies bounded usage controls. The app also supports cancellation, Markdown responses, and per-answer speech playback with browser fallback while its speech service warms up or is unavailable.\n\nI focused on making the model's capabilities explicit and bounded: it cannot run arbitrary generated JavaScript or CSS. The project includes deterministic frontend and backend tests plus an opt-in live model smoke test. The currently verified conversational UI changes use the application's direct shared-handler path, not WebMCP.\n\nFor using the application, please type in 112233445566 at the beginning.",
+    thumbnail: '/assets/Talker.png',
+    fullImage: '/assets/Talker.png',
+    demoUrl: 'https://talker-fe.netlify.app/',
+    repoUrl: 'https://github.com/szlaci3/talker',
+    technologies: ['React', 'TypeScript', 'Vite', 'Python', 'aiohttp', 'LLM tool calling', 'Vitest', 'React Testing Library', 'edge-tts'],
+    type: "poc"
+  },
 ];
 
 const Projects = () => {
