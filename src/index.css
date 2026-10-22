@@ -493,13 +493,19 @@ body {
 
 /* Expanded Content */
 .project-expanded {
-  max-height: 0;
+  display: grid;
+  grid-template-rows: 0fr;
   overflow: hidden;
-  transition: max-height var(--transition-slow);
+  transition: grid-template-rows var(--transition-slow);
+}
+
+.project-expanded-content {
+  min-height: 0;
+  overflow: hidden;
 }
 
 .project-card.expanded .project-expanded {
-  max-height: 2000px;
+  grid-template-rows: 1fr;
 }
 
 .project-full-image {
