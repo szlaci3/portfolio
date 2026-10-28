@@ -77,6 +77,18 @@ const projects: Project[] = [
     type: "poc"
   },
   {
+    id: 9,
+    title: 'Secret World',
+    shortDesc: 'An interactive 3D world explorer with Gemini-powered landscape and icon-world generation.',
+    longDesc: 'Secret World is a browser-based 3D experience for exploring small gardens, open landscapes, and playful worlds made from extruded icons. Users can browse built-in scenes, step inside with first-person walking controls, or describe a place and let Gemini generate a new world. Favorite creations can be saved locally and revisited, while JSON import supports exploring shared world blueprints.\n\nBuilt with React, TypeScript, Three.js, and React Three Fiber, the application combines procedural terrain, reusable scene objects, collision-aware movement, and adaptive rendering detail. The interface connects a thumbnail-based world browser with an immersive walking view, while instanced vegetation and on-demand rendering help manage the cost of detailed scenes.\n\nA central engineering challenge is turning an AI-generated description into a usable environment. Gemini returns a structured blueprint rather than executable code. Server-side validation checks the blueprint and its layout before compiling it into the scene, including object boundaries, terrain constraints, and a safe starting position in a connected walking area. The generation flow also handles cancellation and recoverable errors so users can continue exploring their current world.',
+    thumbnail: '/assets/SecretWorld.png',
+    fullImage: '/assets/SecretWorld2.png',
+    demoUrl: 'https://s-world.netlify.app/',
+    repoUrl: 'https://github.com/szlaci3/secret-world',
+    technologies: ['React', 'TypeScript', 'Three.js', 'React Three Fiber', 'WebGL', 'Vite', 'Gemini API', 'Netlify Functions', 'Zod', 'Vitest', 'Playwright'],
+    type: "poc"
+  },
+  {
     id: 2,
     title: 'Bookworm Archive',
     shortDesc: 'A scalable React application for book discovery and collection management',
