@@ -32,18 +32,6 @@ const projects: Project[] = [
     type: "real"
   },
   {
-    id: 8,
-    title: 'Formlane',
-    shortDesc: 'A browser-based visual prototyping workspace for exploring ideas during meetings.',
-    longDesc: 'Formlane is a browser-based visual prototyping workspace for exploring ideas during meetings. Users can import a website’s visual style by entering its URL, review the detected theme, and apply it across all templates. Colors and shapes can be fine-tuned interactively, while content can be edited, rearranged, or enriched with imported text and tables. Prototypes can be saved, shared, and developed further as the discussion unfolds. An introduction video explains the workspace, and an AI assistant helps users refine their prototypes.\n\nThe idea grew out of my continuing interest in carefully crafted web design. I envisioned a set of tools for applying a website’s visual identity to different content and bringing existing content into editable prototypes. With that direction established, I combined AI assistance with my experience in TypeScript, React, Vite, Vitest, Playwright, LLMs, chatbots, and video production to build Formlane. I collaborated closely with the coding agent, reviewed its changes carefully, and regularly challenged its solutions to achieve the quality and performance I wanted.\n\nOne example was the drag-and-drop interaction: the dragged card initially appeared far to one side of the cursor, making placement awkward. I caught this through my regular practice of manually testing each new feature. This attention to small interaction details was an essential part of my development process.',
-    thumbnail: '/assets/Formlane.png',
-    fullImage: '/assets/Formlane.png',
-    demoUrl: 'https://formlane.netlify.app',
-    repoUrl: 'https://github.com/szlaci3/colombia',
-    technologies: ['React', 'TypeScript', 'Vite', 'Node.js', 'Netlify Functions', 'Gemini API', 'Gemini Live API', 'Web Audio API', 'dnd-kit', 'Cheerio', 'PostCSS', 'Zod', 'Vitest', 'Playwright'],
-    type: "poc"
-  },
-  {
     id: 4,
     title: 'Regulatory Operations Table System',
     shortDesc: "An async data table demo for operational compliance records, showing debounced search, server-style filtering, pagination, virtualization, caching, optimistic edits, rollback, and error recovery.",
@@ -65,15 +53,27 @@ const projects: Project[] = [
     type: "poc",
   },
   {
-    id: 7,
-    title: 'Talker — Conversational AI Interface',
-    shortDesc: 'A deployed React chat application where an LLM can use constrained tools to change the interface through natural language.',
-    longDesc: "Talker is a deployed AI application built around a single-thread chat that runs on the Gemini 3.8 model. Alongside answering messages, the model can request validated application actions, such as changing the theme, font size, or named interface colors. The frontend passes those requests through shared application handlers, so chatbot actions follow the same constraints as manual controls.\n\nThe React and TypeScript frontend streams responses from a Python aiohttp backend, which keeps model credentials server-side and applies bounded usage controls. The app also supports cancellation, Markdown responses, and per-answer speech playback with browser fallback while its speech service warms up or is unavailable.\n\nI focused on making the model's capabilities explicit and bounded: it cannot run arbitrary generated JavaScript or CSS. The project includes deterministic frontend and backend tests plus an opt-in live model smoke test. The currently verified conversational UI changes use the application's direct shared-handler path, not WebMCP.\n\nFor using the application, please type in 112233445566 at the beginning.",
-    thumbnail: '/assets/Talker.png',
-    fullImage: '/assets/Talker.png',
-    demoUrl: 'https://talker-fe.netlify.app/',
-    repoUrl: 'https://github.com/szlaci3/talker',
-    technologies: ['React', 'TypeScript', 'Vite', 'Python', 'aiohttp', 'LLM tool calling', 'Vitest', 'React Testing Library', 'edge-tts'],
+    id: 8,
+    title: 'Formlane',
+    shortDesc: 'A browser-based visual prototyping workspace for exploring ideas during meetings.',
+    longDesc: 'Formlane is a browser-based visual prototyping workspace for exploring ideas during meetings. Users can import a website’s visual style by entering its URL, review the detected theme, and apply it across all templates. Colors and shapes can be fine-tuned interactively, while content can be edited, rearranged, or enriched with imported text and tables. Prototypes can be saved, shared, and developed further as the discussion unfolds. An introduction video explains the workspace, and an AI assistant helps users refine their prototypes.\n\nThe idea grew out of my continuing interest in carefully crafted web design. I envisioned a set of tools for applying a website’s visual identity to different content and bringing existing content into editable prototypes. With that direction established, I combined AI assistance with my experience in TypeScript, React, Vite, Vitest, Playwright, LLMs, chatbots, and video production to build Formlane. I collaborated closely with the coding agent, reviewed its changes carefully, and regularly challenged its solutions to achieve the quality and performance I wanted.\n\nOne example was the drag-and-drop interaction: the dragged card initially appeared far to one side of the cursor, making placement awkward. I caught this through my regular practice of manually testing each new feature. This attention to small interaction details was an essential part of my development process.',
+    thumbnail: '/assets/Formlane.png',
+    fullImage: '/assets/Formlane.png',
+    demoUrl: 'https://formlane.netlify.app',
+    repoUrl: 'https://github.com/szlaci3/colombia',
+    technologies: ['React', 'TypeScript', 'Vite', 'Node.js', 'Netlify Functions', 'Gemini API', 'Gemini Live API', 'Web Audio API', 'dnd-kit', 'Cheerio', 'PostCSS', 'Zod', 'Vitest', 'Playwright'],
+    type: "poc"
+  },
+  {
+    id: 10,
+    title: 'Styler — Interactive CSS Style Explorer',
+    shortDesc: 'Explore website styles in a live preview, inspect computed CSS, and preserve selected declarations while generating new variations.',
+    longDesc: 'Styler is a desktop website style explorer built with React and TypeScript. Users can compare curated styles, inspect the preview’s computed CSS, and lock selected declarations while exploring local color variations and AI-generated designs. A separate inspiration selection guides generation without changing the current preview.\n\nThe preview lives in a persistent ShadowRoot, isolating its CSS from the application while preserving form values and interaction state across style changes. Declaration locks work with the browser’s native cascade, and original styles remain separate from live overrides.\n\nGeneration delivers results progressively with at most two AI requests running at once. Each batch captures its original constraints and inspiration, so users can continue editing without changing requests already in progress. Clear feedback identifies when results use earlier inputs, and failed results can be retried individually with their original context.\n\nThe project combines browser CSS fundamentals with asynchronous React interaction design. Server-side style validation and provider credentials, reduced-motion support, and automated browser checks support a predictable editing experience.',
+    thumbnail: '/assets/Styler.png',
+    fullImage: '/assets/Styler2.png',
+    demoUrl: 'https://szlaci3-styler.netlify.app/',
+    repoUrl: 'https://github.com/szlaci3/styler/',
+    technologies: ['React', 'TypeScript', 'CSS', 'Shadow DOM', 'Vite', 'Node.js', 'Gemini API', 'Netlify Functions', 'Netlify Blobs', 'Playwright'],
     type: "poc"
   },
   {
@@ -89,6 +89,20 @@ const projects: Project[] = [
     type: "poc"
   },
   {
+    disabled: true,
+    id: 7,
+    title: 'Talker — Conversational AI Interface',
+    shortDesc: 'A deployed React chat application where an LLM can use constrained tools to change the interface through natural language.',
+    longDesc: "Talker is a deployed AI application built around a single-thread chat that runs on the Gemini 3.8 model. Alongside answering messages, the model can request validated application actions, such as changing the theme, font size, or named interface colors. The frontend passes those requests through shared application handlers, so chatbot actions follow the same constraints as manual controls.\n\nThe React and TypeScript frontend streams responses from a Python aiohttp backend, which keeps model credentials server-side and applies bounded usage controls. The app also supports cancellation, Markdown responses, and per-answer speech playback with browser fallback while its speech service warms up or is unavailable.\n\nI focused on making the model's capabilities explicit and bounded: it cannot run arbitrary generated JavaScript or CSS. The project includes deterministic frontend and backend tests plus an opt-in live model smoke test. The currently verified conversational UI changes use the application's direct shared-handler path, not WebMCP.\n\nFor using the application, please type in 112233445566 at the beginning.",
+    thumbnail: '/assets/Talker.png',
+    fullImage: '/assets/Talker.png',
+    demoUrl: 'https://talker-fe.netlify.app/',
+    repoUrl: 'https://github.com/szlaci3/talker',
+    technologies: ['React', 'TypeScript', 'Vite', 'Python', 'aiohttp', 'LLM tool calling', 'Vitest', 'React Testing Library', 'edge-tts'],
+    type: "poc"
+  },
+  {
+    disabled: true,
     id: 2,
     title: 'Bookworm Archive',
     shortDesc: 'A scalable React application for book discovery and collection management',
