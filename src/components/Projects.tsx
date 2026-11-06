@@ -102,7 +102,7 @@ const projects: Project[] = [
     type: "poc"
   },
   {
-    disabled: true,
+    disabled: false,
     id: 2,
     title: 'Bookworm',
     shortDesc: 'A book discovery app combining an immersive 3D library, a searchable catalog, and personal collections.',
