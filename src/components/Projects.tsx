@@ -77,6 +77,23 @@ const projects: Project[] = [
     type: "poc"
   },
   {
+    id: 11,
+    disabled: true,
+    title: 'Frontender',
+    shortDesc: 'Frontender combines tools to build, style, and share website prototypes in a browser.',
+    longDesc: [
+      'Frontender combines Formlane, Styler, and Border Image in one workspace. The user can make linked pages with editable blocks or add HTML and CSS. The user can also import text and tables from a website or a Markdown file.',
+      'Styler lets the user inspect and change CSS values for a page or a component. The user can lock selected CSS declarations before Gemini generates new styles. Border Image lets the user make CSS borders from images. The user can preview styles and borders before applying them.',
+      'Frontender saves the workspace in the browser. The user can download a project file and open it again for editing. The user can also share a view-only link, save a page as a PDF, or export the website as a ZIP file.',
+    ].join('\n\n'),
+    thumbnail: '',
+    fullImage: '',
+    demoUrl: 'https://szlaci3-frontender.netlify.app/',
+    repoUrl: 'https://github.com/szlaci3/frontender',
+    technologies: ['React', 'TypeScript', 'CSS', 'Shadow DOM', 'Vite', 'Netlify Functions', 'Netlify Blobs', 'Gemini API', 'Vitest', 'Playwright'],
+    type: "poc"
+  },
+  {
     id: 9,
     title: 'Secret World',
     shortDesc: 'An interactive 3D world explorer with Gemini-powered landscape and icon-world generation.',
@@ -182,12 +199,14 @@ const Projects = () => {
                   Real software in production
                 </div>
               )}
-              <div className="project-thumbnail" onClick={() => toggleProject(project.id)}>
-                <img src={project.thumbnail} alt={project.title} loading="lazy" />
-                <div className="project-overlay">
-                  {expandedProject !== project.id && <span className="expand-hint">Click to expand</span>}
+              {project.thumbnail && (
+                <div className="project-thumbnail" onClick={() => toggleProject(project.id)}>
+                  <img src={project.thumbnail} alt={project.title} loading="lazy" />
+                  <div className="project-overlay">
+                    {expandedProject !== project.id && <span className="expand-hint">Click to expand</span>}
+                  </div>
                 </div>
-              </div>
+              )}
               <div className="project-content">
                 <div className="project-header">
                   <h3 className="project-title">{project.title}</h3>
@@ -216,9 +235,11 @@ const Projects = () => {
                 {/* Expanded Content */}
                 <div className="project-expanded">
                   <div className="project-expanded-content">
-                    <div className="project-full-image">
-                      <img src={project.fullImage} alt={`${project.title} detailed view`} loading="lazy" />
-                    </div>
+                    {project.fullImage && (
+                      <div className="project-full-image">
+                        <img src={project.fullImage} alt={`${project.title} detailed view`} loading="lazy" />
+                      </div>
+                    )}
                     <div className="project-details">
                       <h4>Project Overview</h4>
                       <p className="project-long-desc">{project.longDesc}</p>
