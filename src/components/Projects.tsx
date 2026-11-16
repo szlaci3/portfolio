@@ -54,6 +54,7 @@ const projects: Project[] = [
   },
   {
     id: 8,
+    disabled: true,
     title: 'Formlane',
     shortDesc: 'A browser-based visual prototyping workspace for exploring ideas during meetings.',
     longDesc: 'Formlane is a browser-based visual prototyping workspace for exploring ideas during meetings. Users can import a website’s visual style by entering its URL, review the detected theme, and apply it across all templates. Colors and shapes can be fine-tuned interactively, while content can be edited, rearranged, or enriched with imported text and tables. Prototypes can be saved, shared, and developed further as the discussion unfolds. An introduction video explains the workspace, and an AI assistant helps users refine their prototypes.\n\nThe idea grew out of my continuing interest in carefully crafted web design. I envisioned a set of tools for applying a website’s visual identity to different content and bringing existing content into editable prototypes. With that direction established, I combined AI assistance with my experience in TypeScript, React, Vite, Vitest, Playwright, LLMs, chatbots, and video production to build Formlane. I collaborated closely with the coding agent, reviewed its changes carefully, and regularly challenged its solutions to achieve the quality and performance I wanted.\n\nOne example was the drag-and-drop interaction: the dragged card initially appeared far to one side of the cursor, making placement awkward. I caught this through my regular practice of manually testing each new feature. This attention to small interaction details was an essential part of my development process.',
@@ -66,6 +67,7 @@ const projects: Project[] = [
   },
   {
     id: 10,
+    disabled: true,
     title: 'Styler — Interactive CSS Style Explorer',
     shortDesc: 'Explore website styles in a live preview, inspect computed CSS, and preserve selected declarations while generating new variations.',
     longDesc: 'Styler is a desktop website style explorer built with React and TypeScript. Users can compare curated styles, inspect the preview’s computed CSS, and lock selected declarations while exploring local color variations and AI-generated designs. A separate inspiration selection guides generation without changing the current preview.\n\nThe preview lives in a persistent ShadowRoot, isolating its CSS from the application while preserving form values and interaction state across style changes. Declaration locks work with the browser’s native cascade, and original styles remain separate from live overrides.\n\nGeneration delivers results progressively with at most two AI requests running at once. Each batch captures its original constraints and inspiration, so users can continue editing without changing requests already in progress. Clear feedback identifies when results use earlier inputs, and failed results can be retried individually with their original context.\n\nThe project combines browser CSS fundamentals with asynchronous React interaction design. Server-side style validation and provider credentials, reduced-motion support, and automated browser checks support a predictable editing experience.',
@@ -78,7 +80,6 @@ const projects: Project[] = [
   },
   {
     id: 11,
-    disabled: true,
     title: 'Frontender',
     shortDesc: 'Frontender combines tools to build, style, and share website prototypes in a browser.',
     longDesc: [
